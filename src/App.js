@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import BoxList from './BoxList/BoxList';
+import TodoList from './TodoList/TodoList';
 
 function App() {
   return (
     <div className="App">
-      <BoxList />
+      <TodoList />
     </div>
   );
 }

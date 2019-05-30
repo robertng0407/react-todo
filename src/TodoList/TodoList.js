@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Box from "../Box/Box";
-import NewBoxForm from "../NewBoxForm/NewBoxForm";
+import Todo from "../Todo/Todo";
+import NewTodoForm from "../NewTodoForm/NewTodoForm";
 
 class BoxList extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class BoxList extends Component {
 
   render() {
     const todos = this.state.todos.map(todo => (
-      <Box
+      <Todo
         key={todo.id}
         text={todo.text}
         edit={todo.edit}
@@ -63,7 +63,7 @@ class BoxList extends Component {
         <h1>Todo List!</h1>
         <p>A Simple React Todo List App.</p>
         {todos}
-        <NewBoxForm saveTodo={this.save} />
+        <NewTodoForm saveTodo={this.save} />
       </div>
     );
   }

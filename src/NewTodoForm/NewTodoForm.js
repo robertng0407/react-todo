@@ -4,7 +4,10 @@ import uuid from "uuid/v4";
 class NewBoxForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: "", edit: false };
+    this.state = {
+      text: "",
+      edit: false
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

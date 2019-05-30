@@ -26,7 +26,7 @@ class Box extends Component {
           <div>
             {text}
             <button onClick={onEdit}>Edit</button>
-            <button onClick={onDelete}>Delete</button>
+            <button onClick={onDelete}>X</button>
           </div>
         ) : (
           <form onSubmit={this.handleSubmit}>

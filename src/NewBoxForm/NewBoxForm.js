@@ -17,6 +17,7 @@ class NewBoxForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (!this.state.text.trim()) return;
     const { saveTodo } = this.props;
     const newTodo = { ...this.state, id: uuid() };
     saveTodo(newTodo);

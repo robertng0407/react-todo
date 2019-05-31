@@ -5,7 +5,7 @@ class NewBoxForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: "",
+      task: "",
       edit: false
     };
     this.handleChange = this.handleChange.bind(this);
@@ -20,12 +20,12 @@ class NewBoxForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.state.text.trim()) return;
+    if (!this.state.task.trim()) return;
     const { saveTodo } = this.props;
     const newTodo = { ...this.state, id: uuid() };
     saveTodo(newTodo);
     this.setState({
-      text: "",
+      task: "",
       edit: false
     });
   }
@@ -37,9 +37,9 @@ class NewBoxForm extends Component {
           <p>New Todo</p>
           <input
             type="text"
-            name="text"
+            name="task"
             placeholder="New Todo"
-            value={this.state.text}
+            value={this.state.task}
             onChange={this.handleChange}
           />
           <button type="submit">Add Todo</button>

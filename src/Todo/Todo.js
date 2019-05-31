@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Box extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: this.props.text };
+    this.state = { task: this.props.task };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -15,24 +15,24 @@ class Box extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { onUpdate } = this.props;
-    onUpdate(this.state.text);
+    onUpdate(this.state.task);
   }
 
   render() {
-    const { text, edit, onEdit, onDelete } = this.props;
+    const { task, edit, onEdit, onDelete } = this.props;
     return (
       <div>
         {!edit ? (
           <div>
-            {text}
+            <li>{task}</li>
             <button onClick={onEdit}>Edit</button>
             <button onClick={onDelete}>X</button>
           </div>
         ) : (
           <form onSubmit={this.handleSubmit}>
             <input
-              name="text"
-              value={this.state.text}
+              name="task"
+              value={this.state.task}
               onChange={this.handleChange}
             />
             <button type="submit">Save</button>

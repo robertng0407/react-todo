@@ -31,11 +31,11 @@ class BoxList extends Component {
     });
   }
 
-  update(id, text) {
+  update(id, task) {
     const { todos } = this.state;
     const todoIndex = todos.findIndex(t => t.id === id);
     const updatedTodos = [...todos];
-    updatedTodos[todoIndex] = { ...updatedTodos[todoIndex], edit: false, text };
+    updatedTodos[todoIndex] = { ...updatedTodos[todoIndex], edit: false, task };
     this.setState({
       todos: updatedTodos
     });
@@ -51,18 +51,18 @@ class BoxList extends Component {
     const todos = this.state.todos.map(todo => (
       <Todo
         key={todo.id}
-        text={todo.text}
+        task={todo.task}
         edit={todo.edit}
         onDelete={() => this.delete(todo.id)}
         onEdit={() => this.edit(todo.id)}
-        onUpdate={text => this.update(todo.id, text)}
+        onUpdate={task => this.update(todo.id, task)}
       />
     ));
     return (
       <div>
         <h1>Todo List!</h1>
         <p>A Simple React Todo List App.</p>
-        {todos}
+        <ul>{todos}</ul>
         <NewTodoForm saveTodo={this.save} />
       </div>
     );
